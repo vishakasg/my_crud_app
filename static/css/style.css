@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  a,
+button {
+  border: 1px solid rgb(198, 60, 88);
+  padding: 0.25rem 0.5rem;
+  background-color: rgb(198, 60, 88);
+  color: white;
+  font-size: 0.8rem;
+  text-decoration: none;
+  cursor: pointer;
+ 
+}
+h1{
+    background-color: rgb(198, 60, 88);
+    color: white;
+    text-align:center;
+    height: 100px;
+}

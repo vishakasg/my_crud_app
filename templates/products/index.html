@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Online Gift Portal</h1>
+
+{% if current_user() %}
+<h3>Welcome to the Online Gift Portal {{ current_user()['first_name'] }}!</h3>
+
+<section class="controls">
+  <form action="/sessions/delete" method="POST">
+    <button>Log out</button>
+  </form>
+
+  <a href="/products/new">Add new product</a>
+</section>
+
+<section class="products">
+  {% for product in products: %}
+  <section class="product">
+    <header>
+      <h3>{{ product['name'] }}</h3>
+  
+      <section class="controls">
+        <a href="/products/{{ product['id'] }}/edit">Edit</a>
+  
+        <form action="/products/{{ product['id'] }}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+      </section>
+    </header>
+  
+    <img src="{{ product['image_url'] }}" alt="">
+    <h4>Type:</h4>
+    <p>{{ product['type'] }}</p>
+    <h4>Available Quantity:</h4>
+    <p>{{ product['quantity'] }}</p>
+    <h4>Price:</h4>
+    <p>{{ product['price'] }}</p>
+    <h4>Description:</h4>
+    <p>{{ product['description'] }}</p>
+  </section>
+  {% endfor %}
+</section>
+{% else %}
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+{% endif %}
+
+{% endblock %} 
