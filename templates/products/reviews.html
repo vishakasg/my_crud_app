@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Review</h1>
+
+<h2>{{ product['name'] }}</h2>
+<img src="{{ product['image_url'] }}" alt="">
+{% if current_user%}
+    <section class="controls">
+        <form action="/products/{{ product['id']}}/reviews/create" method="POST">
+            <input type="text" name="review">
+            <button>Submit</button>
+        </form> 
+    </section>
+{% endif %}
+
+{% endblock %}

@@ -1,7 +1,7 @@
 from db.db import sql
 
 def all_products():
-  return sql('SELECT * FROM products ORDER BY id')
+  return sql('SELECT * FROM products ORDER BY type')
 
 def get_product(id):
   products = sql("SELECT * FROM products WHERE id = %s", [id])
@@ -15,3 +15,13 @@ def update_product( id, name, image_url, type, quantity, price, description):
 
 def delete_product(id):
   sql('DELETE FROM products WHERE id=%s RETURNING *', [id])
+
+def create_review(product_id, user_id, review):
+  sql('INSERT INTO reviews(product_id, user_id, review) VALUES(%s, %s, %s) RETURNING *', [product_id, user_id, review])
+
+# def get_reviews(id):
+#   sql("SELECT * FROM products WHERE id = %s", [id])
+
+# def display_reviews():
+#   sql("SELECT * FROM reviews WHERE id = %s", [id])
+  

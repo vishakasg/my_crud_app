@@ -2,25 +2,28 @@
 
 {% block content %}
 <h1>Edit Product</h1>
-<form action="/products" method="POST">
+
+<section class="edit-product">
+<form action="/products/{{ product['id'] }}" method="POST">
   <label for="">Name:</label>
-  <input type="text" name="name">
+  <input value="{{ product['name'] }}" type="text" name="name">
 
   <label for="">Image URL:</label>
-  <input type="text" name="image_url">
+  <input value="{{ product['image_url'] }}" type="text" name="image_url">
 
   <label for="">Type:</label>
-  <input type="text" name="type">
+  <input value="{{ product['type'] }}" type="text" name="type">
 
   <label for="">Quantity:</label>
-  <input type="text" name="quantity">
+  <input value="{{ product['quantity'] }}" type="text" name="quantity">
 
   <label for="">Price:</label>
-  <input type="text" name="price">
+  <input value="{{ product['price'] }}" type="text" name="price">
   
   <label for="">Description:</label>
-  <input type="text" name="description">
+  <input value="{{ product['description'] }}" type="text" name="description">
 
   <button>Update product</button>
 </form>
+</section>
 {% endblock %} 

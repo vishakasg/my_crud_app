@@ -26,6 +26,9 @@
         <form action="/products/{{ product['id'] }}/delete" method="POST">
           <button>Delete</button>
         </form>
+
+        <a href="/products/{{ product['id'] }}/reviews">Reviews</a>
+        <a href="/products/{{ product['id'] }}/review">More</a>
       </section>
     </header>
   
@@ -39,11 +42,14 @@
     <h4>Description:</h4>
     <p>{{ product['description'] }}</p>
   </section>
+
   {% endfor %}
 </section>
 {% else %}
+<section class="login">
 <a href="/users/new">Sign up</a>
 <a href="/sessions/new">Log in</a>
+</section>
 {% endif %}
 
 {% endblock %} 

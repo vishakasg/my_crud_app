@@ -11,10 +11,6 @@ CREATE TABLE products(
     description TEXT
 );
 
-INSERT INTO products(name, image_url, type, quentity, price, description)
-VALUES
-
-
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     first_name TEXT,
@@ -24,31 +20,35 @@ CREATE TABLE users(
     password_digest TEXT
 );
 
+CREATE TABLE reviews(
+  id SERIAL PRIMARY KEY,
+  product_id INTEGER,
+  user_id INTEGER,
+  review TEXT
+);
+
 CREATE TABLE likes(
   id SERIAL PRIMARY KEY,
   user_id INTEGER,
   product_id INTEGER
 );
 
-CREATE TABLE reviews(
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER,
-  product_id INTEGER
-);
 
+-- CREATE TABLE orders(
+--     id SERIAL PRIMARY KEY,
+--     user_id INTEGER;
+--     date TEXT,
+--     items TEXT,
+--     delivary_address TEXT,
+--     total_amount TEXT
 
-CREATE TABLE orders(
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER;
-    date TEXT,
-    items TEXT,
-    delivary_address TEXT,
-    total_amount TEXT
+-- );
 
-);
+-- CREATE TABLE carts(
+--     id SERIAL PRIMARY KEY,
+--     user_id INTEGER,
+--     product_id INTEGER
+-- );
 
-CREATE TABLE carts(
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER,
-    product_id INTEGER
-);
+-- INSERT INTO products(name, image_url, type, quentity, price, description)
+-- VALUES

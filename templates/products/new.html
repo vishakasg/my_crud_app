@@ -1,26 +1,33 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <h1>Add New Product</h1>
+
+<section class="add-new-product">
 <form action="/products" method="POST">
   <label for="">Name:</label>
   <input type="text" name="name">
 
   <label for="">Image URL:</label>
   <input type="text" name="image_url">
-
-  <label for="">Type:</label>
-  <input type="text" name="type">
-
+  
   <label for="">Quantity:</label>
   <input type="text" name="quantity">
 
   <label for="">Price:</label>
   <input type="text" name="price">
 
+  <label for="">Type:</label>
+  <input type="radio" name="catagory" value="cakes">Cakes<br>
+  <input type="radio" name="catagory" value="flowers">Flowers<br>
+  <input type="radio" name="catagory" value="chocolates">Chocolates<br>
+
+
   <label for="">Description:</label>
   <input type="text" name="description">
 
   <button>Add product</button>
 </form>
+</section>
 {% endblock %} 

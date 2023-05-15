@@ -3,9 +3,11 @@
 {% block content %}
 <h1>Sign up</h1>
 <form action="/users" method="POST">
-  <!-- <label for="">You are:</label>
+  <label for="users">You are:</label>
+  <select id="users">
     <option value="admin">Admin</option>
-    <option value="customer">customer</option> -->
+    <option value="customer">customer</option>
+  </select>
     
   <label for="">First Name:</label>
   <input type="text" name="first_name">
