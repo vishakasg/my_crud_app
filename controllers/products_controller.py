@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session
-from models.product import all_products, get_product, create_product, update_product, delete_product, create_review
+from models.product import all_products, get_product, create_product, update_product, delete_product, create_review, get_reviews
 from services.session_info import current_user
 
 def index():
@@ -48,8 +48,12 @@ def write_review(id):
   create_review( product_id, user_id, review)
   return redirect('/')
 
-# def display_review(id):
-#   product = get_product(id)
-#   return render_template('/products/review.html', product=product, current_user=current_user())
+def display_review(id):
+  product_info = get_product(id)
+  product_reviews = get_reviews(id)
+  print(f'the reviews: {product_reviews}')
+  print(f'the product_info: {product_info}')
+  return render_template('/products/review.html', product=product_info,reviews=product_reviews ,current_user=current_user())
+ 
 
 

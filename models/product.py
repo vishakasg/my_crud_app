@@ -19,9 +19,12 @@ def delete_product(id):
 def create_review(product_id, user_id, review):
   sql('INSERT INTO reviews(product_id, user_id, review) VALUES(%s, %s, %s) RETURNING *', [product_id, user_id, review])
 
-# def get_reviews(id):
-#   sql("SELECT * FROM products WHERE id = %s", [id])
+# def get_products(id):
+#  product = sql("SELECT * FROM products WHERE id = %s", [id])
+#  return product
 
-# def display_reviews():
-#   sql("SELECT * FROM reviews WHERE id = %s", [id])
+def get_reviews(id):
+  review = sql("SELECT * FROM reviews WHERE product_id=%s", [id])
+  print(f'this is the review for get_reviews: {review}', [id])
+  return review
   

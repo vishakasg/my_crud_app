@@ -27,11 +27,11 @@ CREATE TABLE reviews(
   review TEXT
 );
 
-CREATE TABLE likes(
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER,
-  product_id INTEGER
-);
+-- CREATE TABLE likes(
+--   id SERIAL PRIMARY KEY,
+--   user_id INTEGER,
+--   product_id INTEGER
+-- );
 
 
 -- CREATE TABLE orders(

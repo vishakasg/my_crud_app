@@ -5,8 +5,8 @@
 
 <h2>{{ product['name'] }}</h2>
 <img src="{{ product['image_url'] }}" alt="">
-
-<p>{{}}</p>
-
-
+<h4>Product review:</h4>
+{% for review in reviews %}
+<p>{{ review['review']}}</p>
+{% endfor %}
 {% endblock %}
